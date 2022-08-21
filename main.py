@@ -19,7 +19,7 @@ class ResponseData(BaseModel):
 
 Instrumentator().instrument(app).expose(app)
 
-@app.get("/roleUsers/{encryptedToken}")
+@app.get("/roleUsers/{encryptedToken}", response_model=ResponseData)
 def read_root(encryptedToken: str):
     logger.debug("encryptedToken recibido: " + encryptedToken)
     
