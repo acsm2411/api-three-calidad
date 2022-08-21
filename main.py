@@ -14,7 +14,7 @@ app = FastAPI()
 
 class ResponseData(BaseModel):
     encryptedToken: str 
-    role: str = ""
+    role: int = 0
     expirationDate: datetime.date = datetime.date.today().strftime("%d/%m/%Y")
 
 Instrumentator().instrument(app).expose(app)
