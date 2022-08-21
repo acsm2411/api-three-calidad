@@ -29,7 +29,7 @@ def read_root(encryptedToken: str):
     requestResult = requests.get(url + "?encryptedToken=" + encryptedToken, timeout=5)
     
     if(len(requestResult.json()) >= 1):
-        responseData.encryptedToken = requestResult.json()[0]["role"]
+        responseData.role = requestResult.json()[0]["role"]
         return Response(content= responseData.json())
     else:
         return Response(status_code= status.HTTP_204_NO_CONTENT)
